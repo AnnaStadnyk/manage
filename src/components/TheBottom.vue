@@ -1,0 +1,22 @@
+<script>
+import TheSection from '@/components/UI/TheSection.vue';
+export default {
+    components: {
+        TheSection
+    }
+}
+</script>
+<template>
+    <TheSection class="bg-brand py-4 lg:py-8" footer="true">
+
+            <template #title>
+                <h3 class="text-2xl text-white font-semibold text-center xl:text-3xl/[2.5rem] lg:text-left">Simplify
+                    how your team works today.</h3>
+            </template>
+            <template #description>
+                <TheButton mode="inverted" class="self-center justify-self-center lg:justify-self-end">Get Started
+                </TheButton>
+            </template>
+
+    </TheSection>
+</template>

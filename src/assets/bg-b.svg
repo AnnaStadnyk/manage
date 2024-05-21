@@ -1,0 +1,5 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect transform="translate(0 0) rotate(45) skewX(0) skewY(0) scale(1)"
+  transform-origin="50 50"
+  x="59" y="25" width="90" height="200" rx="45" fill="#ffefeb"></rect>
+</svg>
