@@ -35,16 +35,21 @@
     overflow-x: hidden;xl:text-lg/[2.25rem]
   } */
   html {
-    @apply font-primary text-base/[1.75rem]  text-primary font-normal overflow-x-hidden 
+    @apply font-primary text-base/[1.75rem]  text-primary font-normal overflow-x-hidden;
   }
-  html.block{
-  @apply overflow-y-hidden 
-}
-  p{
-    @apply xl:text-lg/[2.25rem]
+  html.block {
+    @apply overflow-y-hidden;
   }
-  a, input, button, span  {
-    @apply xl:text-lg/[1.75rem]
+  p {
+    @apply xl:text-lg/[2.25rem];
+  }
+  a,
+  input,
+  button,
+  select,
+  span,
+  label {
+    @apply xl:text-lg/[1.75rem];
   }
 }
 
@@ -52,6 +57,27 @@
   .icon {
     @apply font-icon font-normal not-italic leading-none normal-case antialiased text-2xl transition-all duration-300 ease-in;
   }
+  /* .icon-checkmark {
+    @apply before:content-["\ea10"] text-brand;
+  }
+  .icon-embed {
+    @apply before:content-["\ea7f"] text-primary;
+  }
+  .icon-facebook {
+    @apply before:content-["\ea91"] text-white;
+  }
+  .icon-instagram {
+    @apply before:content-["\ea92"] text-white;
+  }
+  .icon-whatsapp {
+    @apply before:content-["\ea93"] text-white;
+  }
+  .icon-twitter {
+    @apply before:content-["\ea96"] text-white;
+  }
+  .icon-youtube {
+    @apply before:content-["\ea9d"] text-white;
+  } */
 
   .icon-facebook {
     @apply before:content-["\e900"] text-white;
@@ -67,6 +93,9 @@
   }
   .icon-youtube {
     @apply before:content-["\e904"] text-white;
+  }
+  .icon-embed {
+    @apply before:content-["\ea7f"]  text-brand;
   }
 }
 

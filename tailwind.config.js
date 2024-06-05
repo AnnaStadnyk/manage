@@ -61,6 +61,13 @@ export default {
           'lg': '1.5rem',
           '2xl': '3rem'
         }
+      },
+
+      keyframes: {
+        contact: {
+          '0%': { opacity: 0, transform: 'scale(0.9)' },
+          '100%': { opacity: 1, transform: 'scale(1)' },
+        }
       }
     },
   },
