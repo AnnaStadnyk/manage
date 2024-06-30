@@ -80,10 +80,10 @@ export default {
           ></BaseInput>
           <TheButton mode="brand" small="true">Go</TheButton>
         </div>
-        <div class="hidden lg:block self-center lg:self-end">
+        <p class="hidden lg:block self-center lg:self-end">
           Copyright <span>{{ new Date().getFullYear() }}</span
           >. All Rights Reserved
-        </div>
+          </p>
       </div>
 
       <div
@@ -121,10 +121,10 @@ export default {
           ></a>
         </div>
         <img src="../assets/logo-white.svg" alt="logo" class="w-36 h-6 lg:order-first" />
-        <div class="lg:hidden">
+        <p class="lg:hidden">
           Copyright <span>{{ new Date().getFullYear() }}</span
           >. All Rights Reserved
-        </div>
+          </p>
       </div>
     </div>
   </footer>

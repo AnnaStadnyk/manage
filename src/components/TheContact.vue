@@ -17,16 +17,10 @@ export default {
         surname: '',
         phone: '',
         email: '',
-        department: { id: 1, name: 'Marketing', contact: 'Durward Reynolds' },
+        department: { id: 7, name: 'Marketing', contact: 'Durward Reynolds' },
         privacy: false
       },
-      errors: {
-        name: '',
-        surname: '',
-        phone: '',
-        email: '',
-        privacy: false
-      },
+      errors: {},
       departments: [
         { id: 1, name: 'Marketing', contact: 'Durward Reynolds' },
         { id: 2, name: 'HR', contact: 'Kenton Towne' },
@@ -45,7 +39,22 @@ export default {
       }
     },
     saveContact() {
-      this.$emit('close-contact')
+      if (this.contact.name === '') this.errors.name = 'Please, enter your first name';
+      if (this.contact.surname === '') this.errors.surname = 'Please, enter your last name';
+      if (this.contact.phone === '') this.errors.phone = 'Please, enter your phone';
+      if (this.contact.email === '') this.errors.email = 'Please, enter your e-mail';
+      if (!this.departments.find(dep => dep.id === this.contact.department.id)) this.errors.department = 'Please, select a department';
+      if (!this.contact.privacy) this.errors.privacy = 'Please, agree to Terms and Conditions and Privacy Policy';
+
+      if (!Object.keys(this.errors).length) {
+        this.$emit('close-contact');
+        console.log('close-contact');
+      }
+
+    },
+    cancelError(error){
+
+      this.errors[error] = ''
     }
   }
 }
@@ -98,6 +107,7 @@ export default {
                     label="First Name"
                     type="text"
                     :error="errors.name"
+                    @cancel-error="cancelError('name')"
                   ></BaseInput>
                 </div>
                 <div>
@@ -105,22 +115,26 @@ export default {
                     v-model.trim="contact.surname"
                     label="Last Name"
                     type="text"
+                    :error="errors.surname"
+                    @cancel-error="cancelError('surname')"
                   ></BaseInput>
                 </div>
                 <div>
-                  <BaseInput v-model="contact.phone" label="Mobile Phone" type="tel"></BaseInput>
+                  <BaseInput v-model="contact.phone" label="Mobile Phone" type="tel" :error="errors.phone" @cancel-error="cancelError('phone')"></BaseInput>
                 </div>
                 <div>
-                  <BaseInput v-model.trim="contact.email" label="E-mail" type="email"></BaseInput>
+                  <BaseInput v-model.trim="contact.email" label="E-mail" type="email" :error="errors.email" @cancel-error="cancelError('email')"></BaseInput>
                 </div>
                 <div>
-                  <DropDown v-model="contact.department" :items="departments" label="Department">
+                  <DropDown v-model="contact.department" :items="departments" label="Department" :error="errors.department" @cancel-error="cancelError('department')">
                   </DropDown>
                 </div>
-                <div class="flex items-end">
+                <div>
                   <BaseCheckbox
                     v-model="contact.privacy"
-                    label="I Agree to Terms and Conditions and Privacy Plolicy"
+                    label="I Agree to Terms and Conditions and Privacy Policy"
+                    :error="errors.privacy"
+                    @cancel-error="cancelError('privacy')"
                   ></BaseCheckbox>
                 </div>
                 <div class="md:col-span-2 text-center">
